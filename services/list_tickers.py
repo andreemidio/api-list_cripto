@@ -1,6 +1,3 @@
-import json
-from operator import itemgetter
-
 from respository.tickers import Tickers
 
 
