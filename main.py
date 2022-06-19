@@ -22,32 +22,30 @@ def shutdown_event():
 
 @app.get("/tickers")
 async def get_tickers() -> Tickers:
-    data = get_cripto_values()
-
-    values = list_five_tickers(data=data)
+    values = list_five_tickers()
 
     return values
 
 
 @app.get("/tickers/{id}")
 async def get_tickers(id: int) -> Tickers:
-    data = get_cripto_values()
-
-    values = list_five_tickers(data=data)
+    values = list_five_tickers()
 
     return values[id]
 
 
 @app.post("/tickers")
 async def create_tickers(tickers: Tickers) -> Tickers:
+    values = list_five_tickers()
+
+    len(values)
+
     return tickers
 
 
 @app.put("/tickers/{id}")
 async def update_tickers(id: int, tickers: Tickers) -> Tickers:
-    data = get_cripto_values()
-
-    values = list_five_tickers(data=data)
+    values = list_five_tickers()
 
     stored_item_data = values[id]
     stored_item_model = Tickers(**stored_item_data)
@@ -60,9 +58,7 @@ async def update_tickers(id: int, tickers: Tickers) -> Tickers:
 
 @app.delete("/tickers/{id}")
 async def delete_tickers(id: int, tickers: Tickers) -> Tickers:
-    data = get_cripto_values()
-
-    values = list_five_tickers(data=data)
+    values = list_five_tickers()
 
     ticker_to_remove = values[id]
 
