@@ -3,9 +3,8 @@ import logging
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 
-from services.list_tickers import list_five_tickers
 from respository.tickers import Tickers
-from services.bybit import get_cripto_values
+from services.list_tickers import list_five_tickers
 
 app = FastAPI()
 
@@ -37,10 +36,9 @@ async def get_tickers(id: int) -> Tickers:
 @app.post("/tickers")
 async def create_tickers(tickers: Tickers) -> Tickers:
     values = list_five_tickers()
+    values.append(tickers)
 
-    len(values)
-
-    return tickers
+    return values
 
 
 @app.put("/tickers/{id}")

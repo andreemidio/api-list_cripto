@@ -1,6 +1,5 @@
 import json
 import operator
-from operator import itemgetter
 
 from respository.tickers import Tickers
 from services.bybit import get_cripto_values

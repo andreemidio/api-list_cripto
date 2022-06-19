@@ -1,9 +1,11 @@
-from pydantic import BaseModel, validator
+from typing import Optional
+
 import pendulum
+from pydantic import BaseModel, validator
 
 
 class Tickers(BaseModel):
-    id: int
+    id: Optional[int]
     symbol: str
     last_price: str
     next_funding_time: str
