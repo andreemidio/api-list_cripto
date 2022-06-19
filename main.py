@@ -3,7 +3,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 
-from list_tickers import list_five_tickers
+from services.list_tickers import list_five_tickers
 from respository.tickers import Tickers
 from services.bybit import get_cripto_values
 

@@ -18,12 +18,3 @@ def list_five_tickers(data: dict):
         ).dict())
 
     return tickers
-
-
-if __name__ == '__main__':
-    with open("tickers.json") as file:
-        data = json.load(file)
-
-    data = list_five_tickers(data=data)
-
-    print(data)
