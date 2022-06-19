@@ -1,5 +1,3 @@
-from datetime import datetime, date
-
 from pydantic import BaseModel, validator
 import pendulum
 
