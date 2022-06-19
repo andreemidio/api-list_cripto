@@ -1,10 +1,15 @@
+import json
+import operator
+from operator import itemgetter
+
 from respository.tickers import Tickers
 
 
 def list_five_tickers(data: dict):
     values = data["result"]
 
-    newlist = sorted(values, key=lambda x: x['last_price'], reverse=True)[0:5]
+    newlist = sorted(values, reverse=True, key=lambda x: float(operator.itemgetter("last_price")(x)))[:5]
+
     tickers = list()
     for i, d in enumerate(newlist):
         tickers.append(Tickers(
@@ -15,3 +20,10 @@ def list_five_tickers(data: dict):
         ).dict())
 
     return tickers
+
+
+if __name__ == '__main__':
+    with open("../tickers.json") as f:
+        data = json.load(f)
+
+    print(list_five_tickers(data))
